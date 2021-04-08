@@ -20,12 +20,13 @@ Una vez instaladas las herrameintas Virtualbox y Vagrant continue con los siguie
 1. Descarge el siguiente archivo [datacube-tutorial-main.zip](https://github.com/DonAurelio/datacube-tutorial/archive/refs/heads/main.zip).
 2. Descomprima el archivo `datacube-tutorial-main.zip` en el Escritorio. Al descomprimir el archivo se creará la carpeta `datacube-tutorial-main`. Ingrese a este dierctorio.
 3. Estando ubicando en el dierctorio `datacube-tutorial-main`, precione la tecla **shift + click derecho**, en el menú contextual seleccione "Abrir la ventana de PowerShell aquí".
-4. En la consola de PowerShell que se despliega, digitar los siguientes comandos.
+4. En la consola de PowerShell que se desplegada en el paso anterior, digitar el siguiente comando. **NOTA: Este comando debe ser ejecutado sólo una vez.**
 
 ```bash 
-vagrant up
+vagrant up --provision
 ```
-Una vez ejecute el comando anterior podrá ver que se despliegan una serie de datos en la consola. Valide que la información que se muestra a contunuación sea simular a la que se muestra en su consola. Si nota que hay algún error, por favor notifique al coordinador de la actividad para recibir asistencia.
+
+El comando anterior realizará el despliegue del Open Data Cube. Este comando la primera vez que se ejecuta toma al rededor de 15 o 20 minutos, dependiendo de la velocidad de descarga de la red de su computador. En el proceso de ejecución del comando podrá observar información del estado de despliege de la herramientas Open Data Cube.
 
 ```bash
 Bringing machine 'default' up with 'virtualbox' provider...
@@ -37,28 +38,41 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: 8080 (guest) => 8080 (host) (adapter 1)
     default: 8081 (guest) => 8081 (host) (adapter 1)
     default: 22 (guest) => 2222 (host) (adapter 1)
-==> default: Booting VM...
-==> default: Waiting for machine to boot. This may take a few minutes...
-    default: SSH address: 127.0.0.1:2222
-    default: SSH username: vagrant
-    default: SSH auth method: private key
-==> default: Machine booted and ready!
-==> default: Checking for guest additions in VM...
-    default: The guest additions on this VM do not match the installed version of
-    default: VirtualBox! In most cases this is fine, but in rare cases it can
-    default: prevent things such as shared folders from working properly. If you see
-    default: shared folder errors, please make sure the guest additions within the
-    default: virtual machine match the version of VirtualBox you have installed on
-    default: your host and reload your VM.
-    default:
-    default: Guest Additions Version: 6.0.10
-    default: VirtualBox Version: 6.1
-==> default: Mounting shared folders...
-    default: /vagrant => C:/Users/Aurelio Vivas/Desktop/research/datacube
-==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
-==> default: flag to force provisioning. Provisioners marked to run always will still run.
+...
+
+==> default: Running provisioner: shell...
+    default: Running: inline script
+    default: Creating network "vagrant_default" with the default driver
+    default: Creating volume "vagrant_postgis-db-volume" with default driver
+    default: Pulling postgis (postgis/postgis:10-2.5)...
+    default: 10-2.5: Pulling from postgis/postgis
+    default: Digest: sha256:244d959ff69e73d21d76cca8e343d9baedcefa98d7f8359465a79a0769d0464d
+    default: Status: Downloaded newer image for postgis/postgis:10-2.5
+    default: Pulling jupyter (donaurelio/datacube:1.8.2-ubuntu-20.04)...
+    default: 1.8.2-ubuntu-20.04: Pulling from donaurelio/datacube
+    default: Digest: sha256:3dde58af4262c7913e7d234bfe03056220d6d360b8f5fadee749822fe2544cfc
+    default: Status: Downloaded newer image for donaurelio/datacube:1.8.2-ubuntu-20.04
+    default: Pulling explorer (donaurelio/datacube:1.8.2-ubuntu-20.04-explorer-2.4.3)...
+    default: 1.8.2-ubuntu-20.04-explorer-2.4.3: Pulling from donaurelio/datacube
+    default: Digest: sha256:a61e40e01b17e2dc176470eecddac8c8ab4cda863b0304d930896ea907993353
+    default: Status: Downloaded newer image for donaurelio/datacube:1.8.2-ubuntu-20.04-explorer-2.4.3
+    default: Creating vagrant_postgis_1 ...
+    default: Creating vagrant_jupyter_1 ...
+    default: Creating vagrant_explorer_1 ...
+    default: Creating vagrant_jupyter_1  ... done
+    default: Creating vagrant_postgis_1  ... done
+    default: Creating vagrant_explorer_1 ... done
 ```
 
-## TODO 
+Al finalizar el proceso de despliegue, usted deberá verificar en su consola de PowerShell que la última parte de la información desplegada sea simular a la que se muestra a continuación. Si no fue así entonces solicite asistencia.
 
--[] Hacer script de provisioning que instale docker, docker-compose y instale los contenedores del open data cube.
+```bash 
+    default: Creating vagrant_postgis_1 ...
+    default: Creating vagrant_jupyter_1 ...
+    default: Creating vagrant_explorer_1 ...
+    default: Creating vagrant_jupyter_1  ... done
+    default: Creating vagrant_postgis_1  ... done
+    default: Creating vagrant_explorer_1 ... done
+```
+
+Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualuzar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el Open Data Cube y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
