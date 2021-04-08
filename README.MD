@@ -11,6 +11,7 @@ El [Open Data Cube](https://www.opendatacube.org/) proporciona un entorno que fa
 
 1. Descargue e instale la herramienta [Virtualbox 6.1.18](https://download.virtualbox.org/virtualbox/6.1.18/VirtualBox-6.1.18-142142-Win.exe).
 2. Descargue e instale la herramienta [Vagrant 2.2.15](https://releases.hashicorp.com/vagrant/2.2.15/vagrant_2.2.15_x86_64.msi)
+3. Reinicie su computadora.
 
 ## Pasos de instalación del Open Data Cube 
 
@@ -57,3 +58,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
 ==> default: flag to force provisioning. Provisioners marked to run always will still run.
 ```
+
+## TODO 
+
+-[] Hacer script de provisioning que instale docker, docker-compose y instale los contenedores del open data cube.
