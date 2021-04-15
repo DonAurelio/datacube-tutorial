@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "hashicorp/bionic64"
+  config.vm.box = "donaurelio/datacube"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -64,13 +64,13 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-    sudo apt-get install -y docker.io
-    sudo usermod -aG docker $USER
-    sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-  SHELL
+  #   config.vm.provision "shell", inline: <<-SHELL
+  #     sudo apt-get update
+  #     sudo apt-get install -y docker.io
+  #     sudo usermod -aG docker $USER
+  #     sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  #     sudo chmod +x /usr/local/bin/docker-compose
+  #   SHELL
 
   # Starting container when the vm is up
   config.vm.provision "shell", run: "always", inline: "bash -c 'sudo docker-compose -f /vagrant/docker-compose.yml up -d'"
