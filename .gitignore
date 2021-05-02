@@ -1,2 +1,6 @@
-*.box
 .vagrant
+.ipynb_checkpoints
+*.box
+*.zip
+*.SAFE
+*.tif

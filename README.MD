@@ -9,6 +9,8 @@ El [Open Data Cube](https://www.opendatacube.org/) proporciona un entorno que fa
 
 ## Pasos de configuración
 
+Para automatizar el despliegue del open data cube de tal forma que el usuario no tenga la necesidad de entrar en detalles técnico, vamos a usar Virtualbox y Vagrant. 
+
 1. Descargue e instale la herramienta [Virtualbox 6.1.18](https://download.virtualbox.org/virtualbox/6.1.18/VirtualBox-6.1.18-142142-Win.exe).
 2. Descargue e instale la herramienta [Vagrant 2.2.15](https://releases.hashicorp.com/vagrant/2.2.15/vagrant_2.2.15_x86_64.msi)
 3. Reinicie su computadora.
@@ -26,7 +28,7 @@ Una vez instaladas las herrameintas Virtualbox y Vagrant continue con los siguie
 vagrant up --provision
 ```
 
-El comando anterior realizará el despliegue del Open Data Cube. Este comando la primera vez que se ejecuta toma al rededor de 15 o 20 minutos, dependiendo de la velocidad de descarga de la red de su computador. En el proceso de ejecución del comando podrá observar información del estado de despliege de la herramientas Open Data Cube.
+El comando anterior realizará el despliegue del Open Data Cube. La primera vez que se ejecuta el comando toma al rededor de 20 a 30 minutos, dependiendo de la velocidad de descarga de la red de su computador. En el proceso de ejecución del comando podrá observar información del estado de despliege de la herramientas Open Data Cube.
 
 ```bash
 Bringing machine 'default' up with 'virtualbox' provider...
@@ -64,7 +66,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: Creating vagrant_explorer_1 ... done
 ```
 
-Al finalizar el proceso de despliegue, usted deberá verificar en su consola de PowerShell que la última parte de la información desplegada sea simular a la que se muestra a continuación. Si no fue así entonces solicite asistencia.
+Al finalizar el proceso de despliegue, usted deberá verificar en su consola de PowerShell que la última parte de la información desplegada sea similar a la que se muestra a continuación. Si no fue así entonces solicite asistencia.
 
 ```bash 
     default: Creating vagrant_postgis_1 ...
@@ -75,4 +77,4 @@ Al finalizar el proceso de despliegue, usted deberá verificar en su consola de 
     default: Creating vagrant_explorer_1 ... done
 ```
 
-Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualuzar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el Open Data Cube y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
+Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualizar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el Open Data Cube y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
