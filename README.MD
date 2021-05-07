@@ -78,3 +78,17 @@ Al finalizar el proceso de despliegue, usted deberá verificar en su consola de 
 ```
 
 Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualizar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el Open Data Cube y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
+
+
+## Posibles errores
+
+Si al final del despliegue obtiene un error simular al que se muestra a continuación.
+
+```bash 
+negative string size (or size too big) (argumenterror) 
+````
+
+Ingrese a `C:\Users\<su nombre de usuario>\`, busque el directorio `.vagrant.d` y renombrelo a `.vagrant.d.old`
+
+https://github.com/hashicorp/vagrant/issues/10657
+https://www.gitmemory.com/issue/hashicorp/vagrant/9146/541988622

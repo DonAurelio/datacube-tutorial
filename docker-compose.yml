@@ -49,8 +49,8 @@ services:
       - FLASK_ENV=deployment
       - FLASK_APP=cubedash
       - FLASK_DEBUG=1
-    command: >
-      gunicorn -b '0.0.0.0:8082' -w 1 --timeout 60 cubedash:app
+    command: bash -c "gunicorn -b '0.0.0.0:8082' -w 1 --timeout 60 cubedash:app"
+      
 
 volumes:
   postgis-db-volume:

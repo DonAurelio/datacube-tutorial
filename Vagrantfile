@@ -73,8 +73,8 @@ Vagrant.configure("2") do |config|
   #     sudo chmod +x /usr/local/bin/docker-compose
   #   SHELL
 
-  # Starting container when the vm is up
-  config.vm.provision "shell", run: "always", inline: "bash -c 'sudo docker-compose -f /vagrant/docker-compose.yml up -d'"
-  config.vm.provision "shell", run: "always", inline: "bash -c 'sudo docker-compose -f /vagrant/docker-compose.yml exec jupyter datacube system init'"
-  config.vm.provision "shell", run: "always", inline: "bash -c 'sudo docker-compose -f /vagrant/docker-compose.yml restart'"
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo docker-compose -f /vagrant/docker-compose.yml up -d
+    sudo docker-compose -f /vagrant/docker-compose.yml exec -T jupyter datacube system init
+  SHELL
 end
