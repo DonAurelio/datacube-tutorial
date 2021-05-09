@@ -65,16 +65,9 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  #   config.vm.provision "shell", inline: <<-SHELL
-  #     sudo apt-get update
-  #     sudo apt-get install -y docker.io
-  #     sudo usermod -aG docker $USER
-  #     sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  #     sudo chmod +x /usr/local/bin/docker-compose
-  #   SHELL
-
-  config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision "shell", run: "always", inline: <<-SHELL
     sudo docker-compose -f /vagrant/docker-compose.yml up -d
     sudo docker-compose -f /vagrant/docker-compose.yml exec -T jupyter datacube system init
+    sudo docker-compose -f /vagrant/docker-compose.yml exec -T explorer cubedash-gen --init --all
   SHELL
 end

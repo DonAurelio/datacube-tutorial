@@ -25,7 +25,7 @@ Una vez instaladas las herrameintas Virtualbox y Vagrant continue con los siguie
 4. En la consola de PowerShell que se desplegada en el paso anterior, digitar el siguiente comando. **NOTA: Este comando debe ser ejecutado sólo una vez.**
 
 ```bash 
-vagrant up --provision
+vagrant up
 ```
 
 El comando anterior realizará el despliegue del Open Data Cube. La primera vez que se ejecuta el comando toma al rededor de 20 a 30 minutos, dependiendo de la velocidad de descarga de la red de su computador. En el proceso de ejecución del comando podrá observar información del estado de despliege de la herramientas Open Data Cube.
@@ -79,6 +79,10 @@ Al finalizar el proceso de despliegue, usted deberá verificar en su consola de 
 
 Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualizar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el Open Data Cube y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
 
+## TODO
+
+-[ ] Link de descarga de la imágenes
+-[ ] Link de generación y descarga de geojson.io 
 
 ## Posibles errores
 
