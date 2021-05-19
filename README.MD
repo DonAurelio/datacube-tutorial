@@ -94,8 +94,9 @@ Referencias:
 
 ## Agradecimientos
 
+- [German Bravo]()
 - [David Niño](https://github.com/dfnino10) 
 
-### Licencia
+## Licencia
 
-Todos los derechos reservados 2021, Secretaría Distrital de Planeación. Desarrollado por Universidad de los Andes.
+Todos los derechos reservados 2021. Desarrollado por Universidad de los Andes. 
