@@ -78,6 +78,10 @@ Al finalizar el proceso de despliegue, usted deberá verificar en su consola de 
 
 Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualizar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el cubo de datos y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
 
+## Comando útiles de vagrant
+
+En el momento en que ejecutaste `vagrant up` creaste una máquina virtual con el ambiente requerido para trabajar con el cubo de datos. Una vez termines de trabajar en el cubo de datos, debes detener la máquina virtual usando el comando `vagrant halt` esto va a evitar que ésta máquina se siga ejecutando y consuma recursos de tu computador. Cuando la vulevas a necesitar, puedes inicarla de nuevo con el comando `vagrant up`. Recuerda que para ejecutar estos comandos debes tener una consola de PowerShell abierta desde el directorio `datacube-tutorial-main`. Finalmente puedes eliminar la máquina virtual usando el comando `vagrant destroy`, cuando consideres que no requieres usarla de nuevo. Por supuesto, puedes eventualmente crear de nuevo la máquina usando el comando `vagrant up`.
+
 ## Solución posibles problemas
 
 **Si al final del despliegue obtiene un error similar al que se muestra a continuación.**
