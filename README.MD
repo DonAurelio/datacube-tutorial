@@ -6,6 +6,7 @@ El [Open Data Cube](https://www.opendatacube.org/) proporciona un entorno que fa
 
 1. Computador con mímino 8 GB de Memoria RAM.
 2. Sistema Operativo Windows 10
+3. Descarge las imágenes Sentinel 2 disponibles en el siguiente [link](https://drive.google.com/drive/folders/1eNWlKCcia3FsnhFA7k61m3pnkFp3OiF6?usp=sharing) antes de continuar el proceso.
 
 ## Pasos de configuración
 
@@ -44,49 +45,42 @@ Bringing machine 'default' up with 'virtualbox' provider...
 
 ==> default: Running provisioner: shell...
     default: Running: inline script
-    default: Creating network "vagrant_default" with the default driver
-    default: Creating volume "vagrant_postgis-db-volume" with default driver
-    default: Pulling postgis (postgis/postgis:10-2.5)...
-    default: 10-2.5: Pulling from postgis/postgis
-    default: Digest: sha256:244d959ff69e73d21d76cca8e343d9baedcefa98d7f8359465a79a0769d0464d
-    default: Status: Downloaded newer image for postgis/postgis:10-2.5
-    default: Pulling jupyter (donaurelio/datacube:1.8.2-ubuntu-20.04)...
-    default: 1.8.2-ubuntu-20.04: Pulling from donaurelio/datacube
-    default: Digest: sha256:3dde58af4262c7913e7d234bfe03056220d6d360b8f5fadee749822fe2544cfc
-    default: Status: Downloaded newer image for donaurelio/datacube:1.8.2-ubuntu-20.04
-    default: Pulling explorer (donaurelio/datacube:1.8.2-ubuntu-20.04-explorer-2.4.3)...
-    default: 1.8.2-ubuntu-20.04-explorer-2.4.3: Pulling from donaurelio/datacube
-    default: Digest: sha256:a61e40e01b17e2dc176470eecddac8c8ab4cda863b0304d930896ea907993353
-    default: Status: Downloaded newer image for donaurelio/datacube:1.8.2-ubuntu-20.04-explorer-2.4.3
-    default: Creating vagrant_postgis_1 ...
-    default: Creating vagrant_jupyter_1 ...
-    default: Creating vagrant_explorer_1 ...
-    default: Creating vagrant_jupyter_1  ... done
-    default: Creating vagrant_postgis_1  ... done
-    default: Creating vagrant_explorer_1 ... done
+    default: vagrant_postgis_1 is up-to-date
+    default: Starting vagrant_explorer_1 ...
+    default: vagrant_jupyter_1 is up-to-date
+    default: Starting vagrant_explorer_1 ... done
+    default: Initialising database...
+    default: Updated.
+    default: Checking indexes/views.
+    default: Done.
+    default: /home/datacube/.local/lib/python3.8/site-packages/flask_caching/__init__.py:201: UserWarning: Flask-Caching: CACHE_TYPE is set to null, caching is effectively disabled.
+    default:   warnings.warn(
+    default: Initialising schema
+    default: Updating 1 products for LocalConfig<loaded_from=defaults, environment='default', config={'db_hostname': 'postgis', 'db_port': '5432', 'db_database': 'datacube', 'db_username': 'datacube', 'db_password': '***', 'index_driver': 'default', 'db_connection_timeout': '60'}>
+    default: Generating product summaries...
+    default: s2_sen2cor_ard_granule_EO3 done: (2 datasets)
+    default: done. 1/1 generated, 0 failures
+    default: Refreshing statistics...
+    default: done
 ```
 
 Al finalizar el proceso de despliegue, usted deberá verificar en su consola de PowerShell que la última parte de la información desplegada sea similar a la que se muestra a continuación. Si no fue así entonces solicite asistencia.
 
 ```bash 
-    default: Creating vagrant_postgis_1 ...
-    default: Creating vagrant_jupyter_1 ...
-    default: Creating vagrant_explorer_1 ...
-    default: Creating vagrant_jupyter_1  ... done
-    default: Creating vagrant_postgis_1  ... done
-    default: Creating vagrant_explorer_1 ... done
+    default: Initialising schema
+    default: Updating 1 products for LocalConfig<loaded_from=defaults, environment='default', config={'db_hostname': 'postgis', 'db_port': '5432', 'db_database': 'datacube', 'db_username': 'datacube', 'db_password': '***', 'index_driver': 'default', 'db_connection_timeout': '60'}>
+    default: Generating product summaries...
+    default: s2_sen2cor_ard_granule_EO3 done: (2 datasets)
+    default: done. 1/1 generated, 0 failures
+    default: Refreshing statistics...
+    default: done
 ```
 
-Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualizar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el Open Data Cube y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
+Si el despliegue ha sido exitoso, abra el navegador de su preferencias (Google Chrome o Mozila Firefox) e ingrese al siguiente enlace [http://localhost:8080/lab](http://localhost:8080/lab). Podrá visualizar en el navegador la interfa gráfica de JupyterLab. Jupyterlab es el ambiente que nos permitirá desarrollar algoritmos que consulten el cubo de datos y nos permitan ejecutar análisis sobre las imágenes obtenidas a partir de una consulta. 
 
-## TODO
+## Solución posibles problemas
 
--[ ] Link de descarga de la imágenes
--[ ] Link de generación y descarga de geojson.io 
-
-## Posibles errores
-
-Si al final del despliegue obtiene un error simular al que se muestra a continuación.
+**Si al final del despliegue obtiene un error similar al que se muestra a continuación.**
 
 ```bash 
 negative string size (or size too big) (argumenterror) 
@@ -94,5 +88,14 @@ negative string size (or size too big) (argumenterror)
 
 Ingrese a `C:\Users\<su nombre de usuario>\`, busque el directorio `.vagrant.d` y renombrelo a `.vagrant.d.old`
 
-https://github.com/hashicorp/vagrant/issues/10657
-https://www.gitmemory.com/issue/hashicorp/vagrant/9146/541988622
+Referencias:
+1. https://github.com/hashicorp/vagrant/issues/10657
+2. https://www.gitmemory.com/issue/hashicorp/vagrant/9146/541988622
+
+## Agradecimientos
+
+- [David Niño](https://github.com/dfnino10) 
+
+### Licencia
+
+Todos los derechos reservados 2021, Secretaría Distrital de Planeación. Desarrollado por Universidad de los Andes.
